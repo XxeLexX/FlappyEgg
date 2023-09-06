@@ -29,8 +29,8 @@ public class StartGame extends JPanel{
         // draw the columns
         g.drawImage(leftColumn.columnImage, leftColumn.x - leftColumn.width/2, leftColumn.y - leftColumn.height/2, null);
         g.drawImage(rightColumn.columnImage, rightColumn.x - rightColumn.width/2, rightColumn.y - rightColumn.height/2, null);
-        System.out.println("x = " + leftColumn.x + ", y = " + leftColumn.y);
-        System.out.println("Position: " + (rightColumn.x - rightColumn.width/2) + ", " + (rightColumn.y - rightColumn.height/2));
+        //System.out.println("x = " + leftColumn.x + ", y = " + leftColumn.y);
+        //System.out.println("Position: " + (rightColumn.x - rightColumn.width/2) + ", " + (rightColumn.y - rightColumn.height/2));
 
         // draw the gound
         g.drawImage(ground.groundImage, ground.x, ground.y, null);
