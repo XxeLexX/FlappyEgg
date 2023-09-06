@@ -2,6 +2,7 @@ package main;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -20,12 +21,26 @@ public class StartGame extends JPanel{
         background = ImageIO.read(new File("/Users/lxx/Library/CloudStorage/Dropbox/DIYProjects/FlappyEgg/src/main/resources/background.png"));
     }
 
+    public void paint(Graphics g) {
+        // draw the background
+        g.drawImage(background, 0, 0, null);
+        // draw the columns
+        g.drawImage(leftColumn.columnImage, leftColumn.x - leftColumn.width/2, leftColumn.y - leftColumn.height/2, null);
+        g.drawImage(rightColumn.columnImage, rightColumn.x - rightColumn.width/2, rightColumn.y - rightColumn.height/2, null);
+        // draw the gound
+        g.drawImage(ground.groundImage, ground.x, ground.y, null);
+        // draw the egg
+        g.drawImage(egg.eggImage, egg.x - egg.width/2, egg.y - egg.height/2, null);
+    }
+
     public static void main(String[] args) throws Exception {
         // window of operation
         JFrame frame = new JFrame();
         StartGame game = new StartGame();
         frame.add(game);
-        frame.setSize(432, 644); // for test need to set width as 864
+        frame.setSize(432, 644);
+        // for test to show all elements, width of frame needed to set as 864
+        //frame.setSize(864, 644);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
