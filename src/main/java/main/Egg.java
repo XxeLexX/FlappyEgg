@@ -15,7 +15,7 @@ public class Egg {
     public int sizeOfEgg;
 
     public Egg() throws Exception {
-        eggImage = ImageIO.read(new File("egg.png"));
+        eggImage = ImageIO.read(new File("/Users/lxx/Library/CloudStorage/Dropbox/DIYProjects/FlappyEgg/src/main/resources/egg.png"));
         width = eggImage.getWidth();
         height = eggImage.getHeight();
         x = 132;
