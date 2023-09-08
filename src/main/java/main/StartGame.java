@@ -75,6 +75,7 @@ public class StartGame extends JPanel{
         StartGame game = new StartGame();
         frame.add(game);
         frame.setSize(432, 644);
+        frame.setResizable(false);
         // for test to show all elements, width of frame needed to set as 864
         //frame.setSize(864, 644);
         frame.setLocationRelativeTo(null);
