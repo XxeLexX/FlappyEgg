@@ -3,6 +3,7 @@ package main;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -42,8 +43,28 @@ public class StartGame extends JPanel{
             leftColumn.step();
             rightColumn.step();
             egg.step();
+            // Mouse click listener
+            MouseListener mouseListener = new MouseAdapter() {
+                @Override
+                public void mousePressed(MouseEvent e) {
+                    egg.flappy();
+                }
+            };
+            addMouseListener(mouseListener);
+            // Space key press listener
+            KeyListener keyListener = new KeyAdapter() {
+                @Override
+                public void keyPressed(KeyEvent e) {
+                    if (e.getKeyCode() == KeyEvent.VK_SPACE) {
+                        egg.flappy();
+                    }
+                }
+            };
+            addKeyListener(keyListener);
+            requestFocusInWindow(); // For space key Listener
+
             repaint();
-            // set the rate of frame-refreashing as 30 times per second
+            // Set the rate of frame-refreashing as 30 times per second
             Thread.sleep(1000/30);
         }
     }

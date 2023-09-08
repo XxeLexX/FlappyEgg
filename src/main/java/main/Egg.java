@@ -37,7 +37,11 @@ public class Egg {
         double v0 = speed;
         s = v0 * t + g * t * t/2;
         y = y - (int)s;
-        double v = v0 - g * t;
-        speed = v;
+        speed = v0 - g * t;
+    }
+
+    // Reset flying speed
+    public void flappy() {
+        speed = v0;
     }
 }
