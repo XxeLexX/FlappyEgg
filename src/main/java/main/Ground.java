@@ -18,4 +18,13 @@ public class Ground {
         x = 0;
         y = 500;
     }
+
+    // Ground movement
+    public void step() {
+        x--;
+        // 432/4 = 108, in the next frame, which is 109, reset ground's position
+        if (x == -109) {
+            x = 0;
+        }
+    }
 }
