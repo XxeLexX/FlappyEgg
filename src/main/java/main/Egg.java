@@ -2,7 +2,7 @@ package main;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
+import java.util.Objects;
 
 public class Egg {
     public BufferedImage eggImage;
@@ -21,7 +21,7 @@ public class Egg {
     public int animationIndex;
 
     public Egg() throws Exception {
-        eggImage = ImageIO.read(new File("/Users/lxx/Library/CloudStorage/Dropbox/DIYProjects/FlappyEgg/src/main/resources/egg.png"));
+        eggImage = ImageIO.read(Objects.requireNonNull(getClass().getResource("/egg.png")));
         width = eggImage.getWidth();
         height = eggImage.getHeight();
         x = 132;
@@ -36,7 +36,7 @@ public class Egg {
 
         eggImages = new BufferedImage[8];
         for (int i = 0; i < 8; i++) {
-            eggImages[i] = ImageIO.read(new File("/Users/lxx/Library/CloudStorage/Dropbox/DIYProjects/FlappyEgg/src/main/resources/EggMovement/" + i + ".png"));
+            eggImages[i] = ImageIO.read(Objects.requireNonNull(getClass().getResource("/EggMovement/" + i + ".png")));
         }
         animationIndex = 0;
     }

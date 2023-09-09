@@ -5,7 +5,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
+import java.util.Objects;
 
 public class StartGame extends JPanel{
     public Egg egg;
@@ -19,7 +19,7 @@ public class StartGame extends JPanel{
         leftColumn = new Column(1);
         rightColumn = new Column(2);
         ground = new Ground();
-        background = ImageIO.read(new File("/Users/lxx/Library/CloudStorage/Dropbox/DIYProjects/FlappyEgg/src/main/resources/background.png"));
+        background = ImageIO.read(Objects.requireNonNull(getClass().getResource("/background.png")));
     }
 
     // Draw the initial interface

@@ -2,7 +2,7 @@ package main;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
+import java.util.Objects;
 import java.util.Random;
 
 public class Column {
@@ -19,7 +19,7 @@ public class Column {
     public Random random = new Random();
 
     public Column(int n) throws Exception {
-        columnImage = ImageIO.read(new File("/Users/lxx/Library/CloudStorage/Dropbox/DIYProjects/FlappyEgg/src/main/resources/column.png"));
+        columnImage = ImageIO.read(Objects.requireNonNull(getClass().getResource("/column.png")));
         width = columnImage.getWidth();
         height = columnImage.getHeight();
         // the values of gap and distance decide the difficulty of game

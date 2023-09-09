@@ -2,7 +2,7 @@ package main;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.io.File;
+import java.util.Objects;
 
 public class Ground {
     public BufferedImage groundImage;
@@ -12,7 +12,7 @@ public class Ground {
     public int height;
 
     public Ground() throws Exception {
-        groundImage = ImageIO.read(new File("/Users/lxx/Library/CloudStorage/Dropbox/DIYProjects/FlappyEgg/src/main/resources/ground.png"));
+        groundImage = ImageIO.read(Objects.requireNonNull(getClass().getResource("/ground.png")));
         width = groundImage.getWidth();
         height = groundImage.getHeight();
         x = 0;
