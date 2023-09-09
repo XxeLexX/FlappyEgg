@@ -31,7 +31,7 @@ public class StartGame extends JPanel{
         // draw the columns
         g.drawImage(leftColumn.columnImage, leftColumn.x - leftColumn.width/2, leftColumn.y - leftColumn.height/2, null);
         g.drawImage(rightColumn.columnImage, rightColumn.x - rightColumn.width/2, rightColumn.y - rightColumn.height/2, null);
-        // draw the gound
+        // draw the ground
         g.drawImage(ground.groundImage, ground.x, ground.y, null);
         // draw the egg
         g.drawImage(egg.eggImage, egg.x - egg.width/2, egg.y - egg.height/2, null);
@@ -43,6 +43,8 @@ public class StartGame extends JPanel{
             leftColumn.step();
             rightColumn.step();
             egg.step();
+            egg.fly();
+
             // Mouse click listener
             MouseListener mouseListener = new MouseAdapter() {
                 @Override
@@ -76,7 +78,7 @@ public class StartGame extends JPanel{
             getActionMap().put("space", spaceAction);
 
             repaint();
-            // Set the rate of frame-refreashing as 30 times per second
+            // Set the rate of frame-refreshing as 30 times per second
             Thread.sleep(1000/30);
         }
     }

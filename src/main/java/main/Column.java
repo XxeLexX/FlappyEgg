@@ -22,7 +22,7 @@ public class Column {
         columnImage = ImageIO.read(new File("/Users/lxx/Library/CloudStorage/Dropbox/DIYProjects/FlappyEgg/src/main/resources/column.png"));
         width = columnImage.getWidth();
         height = columnImage.getHeight();
-        // the values of gap and distance decide the diffculty of game
+        // the values of gap and distance decide the difficulty of game
         gap = 144;
         distance = 245;
         // 432 * 644 is the size of window (user interface)
