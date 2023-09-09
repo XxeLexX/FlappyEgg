@@ -51,6 +51,7 @@ public class StartGame extends JPanel{
                 }
             };
             addMouseListener(mouseListener);
+            /* Better choice: key binding
             // Space key press listener
             KeyListener keyListener = new KeyAdapter() {
                 @Override
@@ -62,6 +63,17 @@ public class StartGame extends JPanel{
             };
             addKeyListener(keyListener);
             requestFocusInWindow(); // For space key Listener
+            */
+
+            // Use space key to control the object
+            Action spaceAction = new AbstractAction() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    egg.flappy();
+                }
+            };
+            getInputMap().put(KeyStroke.getKeyStroke("SPACE"),"space");
+            getActionMap().put("space", spaceAction);
 
             repaint();
             // Set the rate of frame-refreashing as 30 times per second
