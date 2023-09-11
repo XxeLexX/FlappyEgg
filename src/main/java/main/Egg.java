@@ -28,7 +28,7 @@ public class Egg {
         y = 280;
         sizeOfEgg = 40;
 
-        g = 4; // 重力加速度
+        g = 5; // 重力加速度
         v0 = 20; // 两次位置的时间间隔
         t = 0.25; // 初始上抛速度
         speed = v0; // 当前上抛速度
@@ -50,11 +50,29 @@ public class Egg {
 
     public void fly() {
         animationIndex++;
-        eggImage = eggImages[(animationIndex/6) % 8]; // Set frequency of animation
+        eggImage = eggImages[(animationIndex/12) % 8]; // Set frequency of animation
     }
 
     // Reset flying speed
     public void flappy() {
         speed = v0;
+    }
+
+    public boolean ifHitGround(Ground ground) {
+        if (y + sizeOfEgg/2 >= ground.y) {
+            // if hit, put the egg on the ground, lmao
+            y = ground.y - sizeOfEgg/2;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean ifHitColumns(Column column) {
+        /* 先检测是否在柱子的范围以内(柱子外侧) */
+        if (x > column.x - column.width / 2 - sizeOfEgg / 2 && x < column.x + column.width / 2 + sizeOfEgg / 2) {
+            /* 检测是否在柱子缝隙中 */
+            return y <= column.y - column.gap / 2 + sizeOfEgg / 2 || y >= column.y + column.gap / 2 - sizeOfEgg / 2;
+        }
+        return false;
     }
 }
